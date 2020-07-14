@@ -1,0 +1,47 @@
+name: Development Deployment
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: npm install -g sass
+        
+      - name: Where am I
+        run: ls -la
+
+#       - name: Create ENV file
+#         run: |
+#           echo "SENDGRID_API_KEY='${{secrets.SENDGRID_API_KEY}}'" > admin/.env
+#       - name: Deploy to server
+#         id: deploy
+#         uses: Pendect/action-rsyncer@v1.1.0
+#         env:
+#           DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
+#         with:
+#           flags: '-avzr --delete --exclude="node_modules" --exclude=".git*"'
+#           options: ''
+#           ssh_options: ''
+#           src: '/'
+#           dest: 'electric-dev@142.93.71.156:apps/electric-dev/public/ratefinder'
+
+#       - name: Send mail
+#         uses: dawidd6/action-send-mail@v2
+#         with:
+#           server_address: smtp.sendgrid.net
+#           server_port: 587
+#           username: ${{secrets.MAIL_USERNAME}}
+#           password: ${{secrets.MAIL_PASSWORD}}
+#           subject: Develop - New Deployment on ElectricRate
+#           body: A new deployment to the development environment was made from ${{github.repository}} and it was completed successfully!
+#           to: tmeister@gmail.com
+#           from: ElectricRate Deployer 🤖 <info@electricrate.com>
+#           content_type: text/html
+
+#       - name: Display status from deploy
+#         run: echo "${{ steps.deploy.outputs.status }}"
