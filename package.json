@@ -1,0 +1,14 @@
+{
+  "name": "actions-sass",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Tmeister/action-sass.git",
+  "author": "Enrique Chavez <noone@tmeister.net>",
+  "license": "MIT",
+  "scripts": {
+    "build": "sass index.scss index.css"
+  },
+  "devDependencies": {
+    "sass": "^1.26.10"
+  }
+}
