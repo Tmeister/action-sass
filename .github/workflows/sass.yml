@@ -10,12 +10,13 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install Dependencies
-        run: yarn install \
-        yarn build
-        
+        run: yarn install
+
+      - name: Compile SCSS
+        run: yarn build
+
       - name: Where am I
         run: ls -la
-
 #       - name: Create ENV file
 #         run: |
 #           echo "SENDGRID_API_KEY='${{secrets.SENDGRID_API_KEY}}'" > admin/.env
